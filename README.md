@@ -22,7 +22,7 @@ Train
         python main.py --phase="train" --checkpoint_path="Path to the model.tar" --data_path="Path to the directory where the lmdb file are located"
 
 Inference
-*Delete "--velocity_mag" for static mode
+This command is executed in dynamic mode. Delete "--velocity_mag" for static mode.
 
         python main.py --phase="play" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" 
         --out_dir="path to the output" --velocity_mag
