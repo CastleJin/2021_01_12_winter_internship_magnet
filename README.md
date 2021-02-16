@@ -52,6 +52,7 @@ This command is executed in dynamic mode. Delete "--velocity_mag" for static mod
     --out_dir="path to the output" --velocity_mag
 
 **Inference with temporal filtered**
+
 This code supports two types of <filter_type>, {"butter" and "differenceOfIIR"}.
 
     python main.py --phase="play_temporal" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" --out_dir="path to the output" --amplification_factor=20 --fl=<low_cutoff> --fh=<high_cutoff> --fs=<sampling_rate> --n_filter_tap=<n_filter_tap> --filter_type=<filter_type>
