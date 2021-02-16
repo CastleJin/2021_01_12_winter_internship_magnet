@@ -59,6 +59,7 @@ This code supports two types of <filter_type>, {"butter" and "differenceOfIIR"}.
 **PNG Image Dataset to lmdb file**
 
 create the lmdb file in the train dir
+
 '/dataset/path' means the 'path to the above train directory'
         
     python pngtolmdb.py /dataset/path 
