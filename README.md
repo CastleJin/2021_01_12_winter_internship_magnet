@@ -44,6 +44,19 @@ This code has been tested with torch 1.7.1, torchvision 0.8.2, CUDA 10.2, conda 
     ├── .
 
 ## Inference
+**Inference**
+
+This command is executed in dynamic mode. Delete "--velocity_mag" for static mode.
+
+    python main.py --phase="play" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" 
+    --out_dir="path to the output" --velocity_mag
+
+**Inference with temporal filtered**
+This code supports two types of <filter_type>, {"butter" and "differenceOfIIR"}.
+
+    python main.py --phase="play_temporal" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" --out_dir="path to the output" --amplification_factor=20 --fl=<low_cutoff> --fh=<high_cutoff> --fs=<sampling_rate> --n_filter_tap=<n_filter_tap> --filter_type=<filter_type>
+    
+## Train
 **PNG Image Dataset to lmdb file**
 
 create the lmdb file in the train dir
@@ -55,16 +68,6 @@ create the lmdb file in the train dir
 
     python main.py --phase="train" --checkpoint_path="Path to the model.tar" --data_path="Path to the directory where the lmdb file are located"
 
-**Inference**
-
-This command is executed in dynamic mode. Delete "--velocity_mag" for static mode.
-
-    python main.py --phase="play" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" 
-    --out_dir="path to the output" --velocity_mag
-
-**Inference with temporal filtered**
-
-    python main.py --phase="play_temporal" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" --out_dir="path to the output" --amplification_factor=20 --fl=<low_cutoff> --fh=<high_cutoff> --fs=<sampling_rate> --n_filter_tap=<n_filter_tap> --filter_type=<filter_type>
     
 ## Citation
     @article{oh2018learning,
