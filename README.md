@@ -28,7 +28,8 @@ This code has been tested with torch 1.7.1, torchvision 0.8.2, CUDA 10.2, conda 
         ffmpeg -i <path_to_input>/baby.mp4 -f image2 <path_to_output>/baby/%06d.png
 
 2. And then run the "Inference with temporal filter
-Note the default filter is the DifferenceOfIIR
+
+The default filter is the DifferenceOfIIR
       
        python main.py --phase="play_temporal" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" --out_dir="path to the output" --amplification_factor=20
      
