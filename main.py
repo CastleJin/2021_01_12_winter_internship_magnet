@@ -4,12 +4,12 @@ import argparse
 from train import mag
 
 # set the gpu number
-# os.environ["CUDA_VISIBLE_DEVICES"] = ''
+os.environ["CUDA_VISIBLE_DEVICES"] = '7'
 
 parser = argparse.ArgumentParser(description='')
 parser.add_argument('--phase', dest='phase', default='train',
                     help='train, play, play_temporal')
-parser.add_argument('--checkpoint_path', dest='checkpoint', defualt=None,
+parser.add_argument('--checkpoint_path', dest='checkpoint', default=None,
                     help='Path of checkpoint file for load model')
 parser.add_argument('--data_path', dest='data_path', default=None,
                     help='Path of dataset directory for train model')
@@ -29,16 +29,17 @@ parser.add_argument('--velocity_mag', dest='velocity_mag', action='store_true',
                     help='Whether to do velocity magnification.')
 
 # For temporal operation.
-parser.add_argument('--fl', dest='fl', type=float, default=0.04
+parser.add_argument('--fl', dest='fl', type=float, default=0.04,
                     help='Low cutoff Frequency.')
-parser.add_argument('--fh', dest='fh', type=float, default=0.4
+parser.add_argument('--fh', dest='fh', type=float, default=0.4,
                     help='High cutoff Frequency.')
-parser.add_argument('--fs', dest='fs', type=float, default=30
+parser.add_argument('--fs', dest='fs', type=float, default=30,
                     help='Sampling rate.')
-parser.add_argument('--n_filter_tap', dest='n_filter_tap', type=int, default=2
+parser.add_argument('--n_filter_tap', dest='n_filter_tap', type=int, default=2,
                     help='Number of filter tap required.')
-parser.add_argument('--filter_type', dest='filter_type', type=str, default='differenceOfIIR'
+parser.add_argument('--filter_type', dest='filter_type', type=str, default='differenceOfIIR',
                     help='Type of filter to use, must be Butter or differenceOfIIR.')
+arguments = parser.parse_args()
 
 def main(args):
     model = mag(args.checkpoint)

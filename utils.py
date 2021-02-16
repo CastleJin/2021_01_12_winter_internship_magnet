@@ -6,6 +6,7 @@
 import torch
 import random
 import numpy as np
+import matplotlib.pyplot as plt
 
 from PIL import Image
 from torch.utils.data.sampler import Sampler
@@ -126,7 +127,7 @@ def get_npimg(im):
           im = im.astype('uint8')
     return im
 
-def save_images(self, image, im_path):
+def save_images(image, im_path):
       result = image.squeeze()
       result = ToNumpy()(result)
       result = np.clip(result, -1, 1)

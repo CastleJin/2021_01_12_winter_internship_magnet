@@ -84,8 +84,7 @@ class mag(object):
             self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
             self.train_losses = checkpoint['train_loss'][:]
             self.val_losses = checkpoint['val_loss'][:]
-            self.remain_epoch = self.num_epoch - len(self.train_losses)
-
+            self.remain_epoch = self.num_epoch
     def get_data(self, datapath):
         train_dataset = ImageFolderLMDB(datapath, 
                                         transform = transforms.Compose([ToTensor(), shot_noise(self.poisson_noise_n)]))
@@ -226,7 +225,7 @@ class mag(object):
         else:
             print("Running in Static mode")
 
-        prev_frame = first_frame
+        prev_frame = vid_frames[0]
         desc = vid_name if len(vid_name) < 10 else vid_name[:10]
         for frame in tqdm(vid_frames, desc=desc):
             file_name = os.path.basename(frame)
@@ -251,10 +250,10 @@ class mag(object):
             torch.cuda.empty_cache()
 
     def play_temporal(self, vid_dir, frame_ext, out_dir, amp_factor, fl, fh, fs, n_filter_tap, filter_type):
-      """Magnify video with a temporal filter.
-
-      Args:
-          vid_dir: directory containing video frames videos are processed
+        """Magnify video with a temporal filter.
+        
+         Args:
+         vid_dir: directory containing video frames videos are processed
               in sorted order.
           out_dir: directory to place output frames and resulting video.
           amplification_factor: the amplification factor,
@@ -268,7 +267,7 @@ class mag(object):
 
           # Note 
           Not yet construct the FIR filter
-      """
+        """
         self._load()
         nyq = fs / 2.0
         if filter_type == 'fir':
@@ -365,7 +364,7 @@ class mag(object):
                 # save image
                 im_path = os.path.join(out_dir, file_name)
                 im_path = os.path.join(out_dir, file_name)
-                self._save_images(out, im_path)
+                save_images(out, im_path)
         else:
             print("Not yet construct the FIR filter")
             return
