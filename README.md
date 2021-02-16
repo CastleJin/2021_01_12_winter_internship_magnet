@@ -16,7 +16,32 @@ Modify and use the code according to the purpose.
     pip install -r requirements.txt
 This code has been tested with torch 1.7.1, torchvision 0.8.2, CUDA 10.2, conda 4.6.9, python 3.6.9, Ubuntu 16.04.
 
-## Dataset
+## For quick start
+1. get the baby video and split into multi frames
+
+        wget -i https://people.csail.mit.edu/mrub/evm/video/baby.mp4
+        ffmpeg -i <path_to_input>/baby.mp4 -f image2 <path_to_output>/baby/%06d.png
+
+2. And then run the "Inference with temporal filter
+Note the default filter is the DifferenceOfIIR
+      
+     python main.py --phase="play_temporal" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" --out_dir="path to the output" --amplification_factor=20
+     
+
+## Inference
+This command is executed in dynamic mode. Delete "--velocity_mag" for static mode.
+
+    python main.py --phase="play" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" 
+    --out_dir="path to the output" --velocity_mag
+
+
+**Inference with temporal filtered**
+
+This code supports two types of <filter_type>, {"butter" and "differenceOfIIR"}.
+
+    python main.py --phase="play_temporal" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" --out_dir="path to the output" --amplification_factor=<amplification_factor> --fl=<low_cutoff> --fh=<high_cutoff> --fs=<sampling_rate> --n_filter_tap=<n_filter_tap> --filter_type=<filter_type>
+    
+## reconstrunct the dataset folder before training
 Download the dataset at https://github.com/12dmodel/deep_motion_mag
 
 Then, organize the folder like below.
@@ -50,20 +75,8 @@ Then, organize the folder like below.
     ├── README.md
     ├── requirements.txt
     ├── .
-
-## Inference
-This command is executed in dynamic mode. Delete "--velocity_mag" for static mode.
-
-    python main.py --phase="play" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" 
-    --out_dir="path to the output" --velocity_mag
-
-
-**Inference with temporal filtered**
-
-This code supports two types of <filter_type>, {"butter" and "differenceOfIIR"}.
-
-    python main.py --phase="play_temporal" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" --out_dir="path to the output" --amplification_factor=<amplification_factor> --fl=<low_cutoff> --fh=<high_cutoff> --fs=<sampling_rate> --n_filter_tap=<n_filter_tap> --filter_type=<filter_type>
     
+
 ## Train
 **PNG Image Dataset to lmdb file**
 
