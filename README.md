@@ -13,6 +13,10 @@ Most of the source code was referenced and copied in the materials.
 This code has been tested with torch 1.7.1, torchvision 0.8.2, CUDA 10.2, conda 4.6.9, python 3.6.9, Ubuntu 16.04.
 
 ## Inference
+PNG Image Dataset to lmdb file
+        
+        python png2lmdb /dataset/path 
+
 Train
 
         python main.py --phase="train" --checkpoint_path="/home/urp1/model/epoch1_64_iter_22000.tar" --data_path="/home/urp1/train/data"
