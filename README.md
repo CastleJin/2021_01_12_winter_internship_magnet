@@ -6,12 +6,12 @@ Most of the source code was referenced and copied in these materials.
 2. https://github.com/Fangyh09/Image2LMDB
 3. https://pytorch.org/tutorials/
 
-_Caution
+_Caution_
 
 Some code has an inefficient structure. 
 Modify and use the code according to the purpose.
 
-_Note
+_Note_
 
 There is a pre-trained model at 'model' folder in repo
 
