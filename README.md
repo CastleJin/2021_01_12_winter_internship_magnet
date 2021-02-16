@@ -17,6 +17,10 @@ Modify and use the code according to the purpose.
 This code has been tested with torch 1.7.1, torchvision 0.8.2, CUDA 10.2, conda 4.6.9, python 3.6.9, Ubuntu 16.04.
 
 ## Dataset
+Download the dataset at https://github.com/12dmodel/deep_motion_mag
+
+Then, organize the folder like below.
+
     ├── main.py
     ├── train
     │   ├── 1
