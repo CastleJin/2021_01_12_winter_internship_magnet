@@ -15,27 +15,27 @@ This code has been tested with torch 1.7.1, torchvision 0.8.2, CUDA 10.2, conda 
 ## Inference
 **PNG Image Dataset to lmdb file**
         
-        python pngtolmdb.py /dataset/path 
+    python pngtolmdb.py /dataset/path 
 
 **Train**
 
-        python main.py --phase="train" --checkpoint_path="Path to the model.tar" --data_path="Path to the directory where the lmdb file are located"
+    python main.py --phase="train" --checkpoint_path="Path to the model.tar" --data_path="Path to the directory where the lmdb file are located"
 
 **Inference**
 
 This command is executed in dynamic mode. Delete "--velocity_mag" for static mode.
 
-        python main.py --phase="play" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" 
-        --out_dir="path to the output" --velocity_mag
+    python main.py --phase="play" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" 
+    --out_dir="path to the output" --velocity_mag
 
 **Inference with temporal filtered**
 
-        python main.py --phase="play_temporal" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" --out_dir="path to the output" --amplification_factor=20 --fl=0.04 --fh=0.4 --flss=30 --n_filter_tap=2 --filter_type="differenceOfIIR"
+    python main.py --phase="play_temporal" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" --out_dir="path to the output" --amplification_factor=20 --fl=0.04 --fh=0.4 --flss=30 --n_filter_tap=2 --filter_type="differenceOfIIR"
 
 ## Citation
-        @article{oh2018learning,
-          title={Learning-based Video Motion Magnification},
-          author={Oh, Tae-Hyun and Jaroensri, Ronnachai and Kim, Changil and Elgharib, Mohamed and Durand, Fr{\'e}do and Freeman, William T and Matusik, Wojciech},
-          journal={arXiv preprint arXiv:1804.02684},
-          year={2018}
-        }
+    @article{oh2018learning,
+      title={Learning-based Video Motion Magnification},
+      author={Oh, Tae-Hyun and Jaroensri, Ronnachai and Kim, Changil and Elgharib, Mohamed and Durand, Fr{\'e}do and Freeman, William T and Matusik, Wojciech},
+      journal={arXiv preprint arXiv:1804.02684},
+      year={2018}
+    }
