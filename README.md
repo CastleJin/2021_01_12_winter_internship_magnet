@@ -13,21 +13,22 @@ Most of the source code was referenced and copied in the materials.
 This code has been tested with torch 1.7.1, torchvision 0.8.2, CUDA 10.2, conda 4.6.9, python 3.6.9, Ubuntu 16.04.
 
 ## Inference
-_PNG Image Dataset to lmdb file_
+**PNG Image Dataset to lmdb file**
         
         python pngtolmdb.py /dataset/path 
 
-_Train_
+**Train**
 
         python main.py --phase="train" --checkpoint_path="Path to the model.tar" --data_path="Path to the directory where the lmdb file are located"
 
-_Inference_
+**Inference**
+
 This command is executed in dynamic mode. Delete "--velocity_mag" for static mode.
 
         python main.py --phase="play" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" 
         --out_dir="path to the output" --velocity_mag
 
-_Inference with temporal filtered_
+**Inference with temporal filtered**
 
         python main.py --phase="play_temporal" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" --out_dir="path to the output" --amplification_factor=20 --fl=0.04 --fh=0.4 --flss=30 --n_filter_tap=2 --filter_type="differenceOfIIR"
 
