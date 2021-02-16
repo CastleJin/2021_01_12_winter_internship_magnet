@@ -12,6 +12,37 @@ Most of the source code was referenced and copied in the materials.
     pip install -r requirements.txt
 This code has been tested with torch 1.7.1, torchvision 0.8.2, CUDA 10.2, conda 4.6.9, python 3.6.9, Ubuntu 16.04.
 
+## Dataset
+    ├── main.py
+    ├── train
+    │   ├── 1
+    │   │   ├── amplified
+    │   │   │   ├── 000000.png
+    │   │   │   ├── 000001.png
+    │   │   │   ├── .
+    │   │   │   └── .
+    │   ├── 2   
+    │   │   ├── frameA
+    │   │   │   ├── 000000.png
+    │   │   │   ├── 000001.png
+    │   │   │   ├── .
+    │   │   │   └── .
+    │   ├── 3   
+    │   │   ├── frameB
+    │   │   │   ├── 000000.png
+    │   │   │   ├── 000001.png
+    │   │   │   ├── .
+    │   │   │   └── .
+    │   ├── 4   
+    │   │   ├── frameC
+    │   │   │   ├── 000000.png
+    │   │   │   ├── 000001.png
+    │   │   │   ├── .
+    │   │   │   └── .
+    ├── README.md
+    ├── requirements.txt
+    ├── .
+
 ## Inference
 **PNG Image Dataset to lmdb file**
         
