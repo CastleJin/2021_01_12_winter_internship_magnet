@@ -44,8 +44,6 @@ This code has been tested with torch 1.7.1, torchvision 0.8.2, CUDA 10.2, conda 
     ├── .
 
 ## Inference
-**Inference**
-
 This command is executed in dynamic mode. Delete "--velocity_mag" for static mode.
 
     python main.py --phase="play" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" 
