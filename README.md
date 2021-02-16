@@ -15,19 +15,21 @@ This code has been tested with torch 1.7.1, torchvision 0.8.2, CUDA 10.2, conda 
 ## Inference
 PNG Image Dataset to lmdb file
         
-        python png2lmdb /dataset/path 
+        python pngtolmdb.py /dataset/path 
 
 Train
 
-        python main.py --phase="train" --checkpoint_path="/home/urp1/model/epoch1_64_iter_22000.tar" --data_path="/home/urp1/train/data"
+        python main.py --phase="train" --checkpoint_path="Path to the model.tar" --data_path="Path to the directory where the lmdb file are located"
 
 Inference
+*Delete "--velocity_mag" for static mode
 
-        python main.py --phase="play" --checkpoint_path="/home/urp1/model/epoch1_64_iter_22000.tar" --vid_dir="/home/urp1/test/video" --out_dir="/home/urp1/test/video/result" --velocity_mag
+        python main.py --phase="play" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" 
+        --out_dir="path to the output" --velocity_mag
 
 Inference with temporal filtered
 
-        python main.py --phase="play_temporal" --checkpoint_path="/home/urp1/model/epoch1_64_iter_22000.tar" --vid_dir="/home/urp1/test/video" --out_dir="/home/urp1/test/video/temporal" --amplification_factor=20 --fl=0.04 --fh=0.4 --flss=30 --n_filter_tap=2 --filter_type="differenceOfIIR"
+        python main.py --phase="play_temporal" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" --out_dir="path to the output" --amplification_factor=20 --fl=0.04 --fh=0.4 --flss=30 --n_filter_tap=2 --filter_type="differenceOfIIR"
 
 ## Citation
         @article{oh2018learning,
