@@ -45,6 +45,7 @@ This code has been tested with torch 1.7.1, torchvision 0.8.2, CUDA 10.2, conda 
 
 ## Inference
 **PNG Image Dataset to lmdb file**
+/dataset/path means the path to the above train directory
         
     python pngtolmdb.py /dataset/path 
 
