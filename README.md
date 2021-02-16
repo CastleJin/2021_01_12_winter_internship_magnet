@@ -7,7 +7,7 @@ Most of the source code was referenced and copied in these materials.
 3. https://pytorch.org/tutorials/
 
 ## Installation
-    conda create -n name python==3.6.9
+    conda create -n env_name python==3.6.9
     pip install ffmpeg==1.4
     pip install -r requirements.txt
 This code has been tested with torch 1.7.1, torchvision 0.8.2, CUDA 10.2, conda 4.6.9, python 3.6.9, Ubuntu 16.04.
