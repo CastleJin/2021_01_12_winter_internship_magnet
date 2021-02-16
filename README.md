@@ -6,6 +6,10 @@ Most of the source code was referenced and copied in these materials.
 2. https://github.com/Fangyh09/Image2LMDB
 3. https://pytorch.org/tutorials/
 
+Caution!
+Some code has an inefficient structure. 
+Modify and use the code according to the purpose.
+
 ## Installation
     conda create -n env_name python==3.6.9
     pip install ffmpeg==1.4
@@ -53,16 +57,14 @@ This command is executed in dynamic mode. Delete "--velocity_mag" for static mod
 
 This code supports two types of <filter_type>, {"butter" and "differenceOfIIR"}.
 
-    python main.py --phase="play_temporal" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" --out_dir="path to the output" --amplification_factor=20 --fl=<low_cutoff> --fh=<high_cutoff> --fs=<sampling_rate> --n_filter_tap=<n_filter_tap> --filter_type=<filter_type>
+    python main.py --phase="play_temporal" --checkpoint_path="Path to the model.tar" --vid_dir="Path to the directory where the video frames are located" --out_dir="path to the output" --amplification_factor=<amplification_factor> --fl=<low_cutoff> --fh=<high_cutoff> --fs=<sampling_rate> --n_filter_tap=<n_filter_tap> --filter_type=<filter_type>
     
 ## Train
 **PNG Image Dataset to lmdb file**
 
 create the lmdb file in the train dir
-
-'/dataset/path' means the 'path to the above train directory'
         
-    python pngtolmdb.py /dataset/path 
+    python pngtolmdb.py path/to/master/directory
 
 **Train**
 
