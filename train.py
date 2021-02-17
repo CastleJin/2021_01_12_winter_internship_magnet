@@ -368,7 +368,8 @@ class mag(object):
         else:
             print("Not yet construct the FIR filter")
             return
-
+        
+        vid_name = vid_name + '.mp4'
         # Try to combine it into a video
         subprocess.call([DEFAULT_VIDEO_CONVERTER, '-y', '-f', 'image2', '-r', '30', '-i',
                 os.path.join(out_dir, '%06d.png'), '-c:v', 'libx264',
