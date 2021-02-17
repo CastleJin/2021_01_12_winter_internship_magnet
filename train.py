@@ -373,5 +373,5 @@ class mag(object):
         # Try to combine it into a video
         subprocess.call([DEFAULT_VIDEO_CONVERTER, '-y', '-f', 'image2', '-r', '30', '-i',
                 os.path.join(out_dir, '%06d.png'), '-c:v', 'libx264',
-                os.path.join(out_dir, vid_name + '.mp4')]
+                os.path.join(out_dir, vid_name)]
             )
